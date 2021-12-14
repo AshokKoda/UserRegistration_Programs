@@ -12,9 +12,21 @@ public class UserRegistration {
 		Matcher matcher = pattern.matcher(firstName);
 
 		if (!matcher.find()) {
-			System.out.println("Firstname letter should be capital.");
+			System.out.println("First letter should be capital.");
 		} else {
 			System.out.println("Firstname is valid.");
+		}
+	}
+	
+	//Validate Last name
+	public static void validLastName(String lastName) {
+		Pattern pattern = Pattern.compile("^[A-Z]{1}+[a-z]{3,}");
+		Matcher matcher = pattern.matcher(lastName);
+
+		if (!matcher.find()) {
+			System.out.println("First letter should be capital.");
+		} else {
+			System.out.println("Lastname is valid.");
 		}
 	}
 
@@ -28,6 +40,11 @@ public class UserRegistration {
 		String fname = sc.next();
 		System.out.println("Firstname is: " + fname);
 		validFirstName(fname);
+		
+		System.out.println("Enter Lastname: ");
+		String lname = sc.next();
+		System.out.println("Lastname is: " + lname);
+		validLastName(lname);
 	}
 
 }

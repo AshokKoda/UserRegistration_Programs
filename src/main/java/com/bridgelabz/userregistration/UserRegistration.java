@@ -17,8 +17,8 @@ public class UserRegistration {
 			System.out.println("Firstname is valid.");
 		}
 	}
-	
-	//Validate Last name
+
+	// Validate Last name
 	public static void validLastName(String lastName) {
 		Pattern pattern = Pattern.compile("^[A-Z]{1}+[a-z]{3,}");
 		Matcher matcher = pattern.matcher(lastName);
@@ -27,6 +27,18 @@ public class UserRegistration {
 			System.out.println("First letter should be capital.");
 		} else {
 			System.out.println("Lastname is valid.");
+		}
+	}
+
+	// Validate Email
+	public static void validateEmail(String emailId) {
+		Pattern pattern = Pattern.compile("^(.+)@(.+)$");
+		Matcher matcher = pattern.matcher(emailId);
+
+		if (!matcher.find()) {
+			System.out.println("Email-ID is invalid.");
+		} else {
+			System.out.println("Email-ID is valid.");
 		}
 	}
 
@@ -40,11 +52,16 @@ public class UserRegistration {
 		String fname = sc.next();
 		System.out.println("Firstname is: " + fname);
 		validFirstName(fname);
-		
+
 		System.out.println("Enter Lastname: ");
 		String lname = sc.next();
 		System.out.println("Lastname is: " + lname);
 		validLastName(lname);
+		
+		System.out.println("Enter Email-ID: ");
+		String emailId = sc.next();
+		System.out.println("Email-ID is: " + emailId);
+		validateEmail(emailId);
 	}
 
 }
